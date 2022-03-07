@@ -19,7 +19,7 @@ granita build
 At a basic level, you write Markdown in the `pages` directory, and Granita combines them with HTML templates from the `templates` directory.
 
 For example, take the following Markdown:
-```md
+```markdown
 # Hello world!
 
 > *I'm learning how to use [Granita](https://github.com/apple-phi/granita)*
@@ -30,7 +30,7 @@ By default, if a template is not specified, Granita will use the `default.html` 
 Files listed in the `static` directory will be copied as-is to the output `public` directory.
 ## Frontmatter
 To specify your own parameters, you can use a format called frontmatter. It looks like this:
-```md
+```markdown
 ---
 title: "My app"
 template: my_template.html
