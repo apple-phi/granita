@@ -24,11 +24,11 @@ def insert_content(template: os.PathLike, mapping: dict[str, str]):
         document("head").append("<title/>")
     for selector, content in {**extra_data, **mapping}.items():
         element = document.find(selector)
-        if not element:
+        if not element and selector != "template":
             logging.warning(
                 f"No matches found for selector `{selector}` in template `{template}`"
             )
-        element.html(content)
+        element.append(content)
     return document.outer_html()
 
 
@@ -54,9 +54,9 @@ def process_folder(directory: os.PathLike):
 
 def build(clean=False):
     if clean:
-        logging.info(f"Cleaning out existing public folder {public}")
+        logging.info(f"Cleaning out existing public folder `{public}`")
         shutil.rmtree(public, ignore_errors=True)
     process_folder(pages)
-    logging.info(f"Copying static folder {static}")
+    logging.info(f"Copying static folder `{static}`")
     if (public / static).exists():
         shutil.copytree(static, public / static, dirs_exist_ok=True)
