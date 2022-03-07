@@ -1,6 +1,6 @@
 # Granita
 
-A super-simple static site generator, with opinionated defaults.
+A super-simple static site generator, with sensible opinionated defaults.
 
 ## Installation
 ```sh
@@ -65,7 +65,7 @@ If you are unsatisfied with the default paths and settings, you can create a `gr
 	"extra-data": {} // key : value pairs of CSS selector : HTML data
 }
 ```
-You don't have to provide customisation for all settings; the defaults will be used if unspecified.
+You don't have to provide customisation for all settings; the defaults will be used if left unspecified.
 
 ## License
 MIT License, which can be found [here](https://github.com/apple-phi/granita/blob/main/LICENSE)
