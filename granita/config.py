@@ -20,4 +20,5 @@ public = pathlib.Path(data["public"])
 templates = pathlib.Path(data["templates"])
 default_template = data["default-template"]
 content_selector = data["content-selector"]
+global_stylesheet = data["global-stylesheet"]
 extra_data = data["extra-data"]

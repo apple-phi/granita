@@ -15,13 +15,20 @@ from .config import (
     pages,
     static,
     extra_data,
+    global_stylesheet,
 )
+
+
+def insert_defaults(document: pyquery.PyQuery):
+    if not document("head > title"):
+        document("head").prepend("<title/>")
+    if global_stylesheet:
+        document("head").prepend(f"<link rel='stylesheet' href='{global_stylesheet}'/>")
 
 
 def insert_content(template: os.PathLike, mapping: dict[str, str]):
     document = pyquery.PyQuery(filename=template)
-    if not document("head > title"):
-        document("head").append("<title/>")
+    insert_defaults(document)
     for selector, content in {**extra_data, **mapping}.items():
         element = document.find(selector)
         if not element and selector != "template":
