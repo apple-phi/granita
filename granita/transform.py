@@ -58,5 +58,4 @@ def build(clean=False):
         shutil.rmtree(public, ignore_errors=True)
     process_folder(pages)
     logging.info(f"Copying static folder `{static}`")
-    if (public / static).exists():
-        shutil.copytree(static, public / static, dirs_exist_ok=True)
+    shutil.copytree(static, public / static, dirs_exist_ok=True)
