@@ -1,4 +1,5 @@
 import typer
+import shutil
 import pathlib
 
 app = typer.Typer()
@@ -14,46 +15,7 @@ def callback():
 @app.command()
 def init(name: str):
     """Initialize a new Granita project."""
-    root = pathlib.Path(name)
-    (root / "templates").mkdir(parents=True)
-    (root / "static").mkdir(parents=True)
-    (root / "pages").mkdir(parents=True)
-    (root / "templates" / "default.html").write_text(
-        """<html>
-	<head>
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
-		/>
-	</head>
-	<body>
-		<div
-			style="
-				width: 60%;
-				height: 50%;
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				margin: auto;
-			"
-		>
-			<content />
-		</div>
-	</body>
-</html>
-"""
-    )
-    (root / "pages" / "index.md").write_text(
-        """---
-title: "Granita"
----
-# Hello world
-Welcome to your first Granita project!
-
-> *If you're feeling kind you can buy me a coffee [here](https://www.buymeacoffee.com/applephi)* 🍏"""
-    )
+    shutil.copytree(pathlib.Path(__file__).parent / "init", name)
 
 
 @app.command()
