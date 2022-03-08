@@ -58,7 +58,7 @@ Welcome to your first Granita project!
 
 @app.command()
 def build(
-    clean: bool = typer.Argument(
+    clean: bool = typer.Option(
         False, help="Whether to clean out the public folder before building."
     )
 ):
