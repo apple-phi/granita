@@ -1,6 +1,6 @@
 """Granita is a simple static site generator for embedding Markdown in HTML templates."""
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 import logging
 
