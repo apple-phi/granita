@@ -9,7 +9,7 @@ with open(default) as f:
 if custom.exists():
     logging.info(f"Using custom configuration file {custom.absolute()}")
     with open(custom) as f:
-        data.update(json.load(f))
+        data |= json.load(f)
 else:
     logging.info(f"Using default configuration file {default.absolute()}")
 logging.info("Using configuration:\n" + "\n".join(f"{k}: {v}" for k, v in data.items()))
